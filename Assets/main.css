@@ -1,0 +1,473 @@
+/*
+###########################
+0.A. Setting
+###########################
+ */
+
+
+
+/*
+###########################
+0.B. Base
+###########################
+ */
+:focus{
+  outline: none;
+}
+
+.input_group{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-family: roboto;
+}
+
+.input_group span{
+  text-transform: capitalize;
+  font-size: 1em;
+  letter-spacing: 1.5px;
+  font-weight: 500;
+  padding: 5px 2px;
+}
+
+.input_group input{
+  padding: 5px 8px;
+  border: 1px solid #4285f4;
+}
+
+.input_group span.msg{
+  font-size: 0.8em;
+  display: none;
+}
+
+body{
+  background: var(--mainColorBackground);
+}
+
+.mobile_only{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  min-width: 100vw;
+  min-height: 100vh;
+  font-family: roboto;
+  font-size: 2em;
+  background: var(--mainColorBackground);
+}
+
+.mobile_only h3{
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.mobile_only h4{
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+.holder{
+  position: absolute;
+  display: none;
+}
+
+@keyframes zoomIn {
+  from{
+    transform: scale(0);
+  }
+  to{
+    transform: scale(1);
+  }
+}
+
+@keyframes zoomY {
+  from{
+    transform: scaleY(0);
+  }
+  to{
+    transform: scaleY(1);
+  }
+}
+@keyframes littleWiggle{
+  0%{
+    transform: skewY(0);
+  }
+  25%{
+    transform: skewY(1deg);
+  }
+  50%{
+    transform: skewY(-1deg);
+  }
+  75%{
+    transform: skewY(1deg);
+  }
+  100%{
+    transform: skewY(0);
+  }
+}
+
+.holder .login-container form input{
+  pointer-events: none;
+}
+
+@media (max-width: 991px){
+
+  .mobile_only h3{
+    font-size: 1em
+  }
+
+  .mobile_only h4{
+    font-size: 0.8em;
+    text-align: center;
+  }
+
+}
+
+@media only screen and (max-width: 720px){
+  .mobile_only{
+    display: none;
+  }
+  .main_media .modal-dialog{
+    margin: 2rem !important;
+  }
+  /*
+  ###########################
+  1. Login Form
+  ###########################
+   */
+
+  .holder{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100vw;
+    min-height: 100vh;
+    padding: 0 2em;
+  }
+
+  .holder .login-container{
+    background: #ffffff;
+    box-shadow: 0 0 10px -1px rgba(0,0,0,0.7);
+    border-radius: 10px;
+    width: 300px;
+    max-width: 500px;
+    min-height: 150px;
+    max-height: 500px;
+  }
+
+  .login-container .header{
+    display: flex;
+    flex-direction: row;
+    font-size: 1.3em;
+    font-family: roboto;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: var(--redDefault);
+    color: white;
+    height: 15%;
+    padding: 10px;
+  }
+
+  .login-container .footer{
+    display: flex;
+    justify-content: center;
+    text-transform: capitalize;
+    font-family: roboto;
+    font-size: 0.75em;
+    font-weight: 300;
+    height: 15%;
+    padding: 10px;
+  }
+
+  .holder .login-container form input{
+    pointer-events: fill;
+  }
+
+  .login-container .body{
+    padding: 15px;
+    width: 100%;
+  }
+
+  .login-container .body .optionBlock{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 10px 8px;
+  }
+
+  .login-container .body .optionBlock .btn{
+    margin-left: 10px;
+
+  }
+
+  .login-container .body .optionBlock a{
+    display: flex;
+    width: 100%;
+    font-size: 0.8em;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    align-items: center;
+  }
+
+  #token_wrapper input.alert{
+    animation: littleWiggle 0.5s ease-in;
+    border: 1px solid var(--redDefault);
+  }
+
+  #token_wrapper{
+    animation: zoomY 0.1s ease-in;
+  }
+
+  #token_wrapper .msg.alert{
+    display: block;
+    color: var(--redDefault);
+  }
+
+  #reg_wrapper{
+    animation: zoomY 0.1s ease-in;
+  }
+
+  /*
+  ###########################
+  2. Dashboard
+  ###########################
+   */
+   /*
+    2.1 Header
+   */
+
+   .navbar{
+     position: fixed;
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     flex-wrap: nowrap;
+     top: 0;
+     left: 0;
+     width: 100%;
+     padding: 0 20px;
+     z-index: 999;
+     font-family: robot;
+     color: var(--mainColorBackground);
+     background:var(--redDefault);
+     box-shadow: 0 3px 5px -2px rgba(0,0,0,0.7);
+   }
+
+   .navbar .logo{
+     width: 100%;
+   }
+
+   .navbar .logo a{
+     display: flex;
+     align-items: center;
+     text-decoration: none;
+     color: currentColor;
+     height: 80px;
+     transform: rotate(0);
+     transition: transform 0.3s ease-out;
+   }
+
+   .navbar .logo h3{
+     font-size: 1.5em;
+     font-weight: 600;
+     letter-spacing: 1.5px;
+     text-transform: uppercase;
+     margin: 0;
+   }
+
+   .navbar .toggle::before{
+     content: "";
+     position: absolute;
+     top: 0;
+     left: 0.5em;
+     right: .5em;
+     height: 2px;
+     background: currentColor;
+     transform: rotate(0);
+     transition: transform 0.3s ease-out;
+   }
+
+   .navbar .toggle{
+     position: relative;
+     content: "";
+     display: flex;
+     align-items: center;
+     width: 60px;
+     height: 20px;
+     transition: height 0.3s ease-out;
+   }
+
+    .navbar .toggle i.line{
+      content: "";
+      margin: 0 0.5em;
+      width: 100%;
+      height: 2px;
+      background: currentColor;
+      transform: rotate(0);
+      transition: width,transform .5s ease-in-out;
+    }
+
+   .navbar .toggle::after{
+     content: "";
+     position: absolute;
+     bottom: 0;
+     left: 0.5em;
+     right: .5em;
+     height: 2px;
+     background: currentColor;
+     transform: rotate(0);
+     transition: transform 0.3s ease-out;
+   }
+
+   .navbar .toggle.active::before{
+     transform: rotate(315deg)
+   }
+
+   .navbar .toggle.active{
+     height: 0;
+   }
+
+   .navbar .toggle.active i.line{
+     transform: rotate(270deg);
+     width: 0;
+   }
+
+   .navbar .toggle.active::after{
+     transform: rotate(225deg)
+   }
+
+   .navbar .menu{
+     position: fixed;
+     top: 80px;
+     left: -100%;
+     display: block;
+     width: 100%;
+     height: 100vh;
+     padding: 25% 50px;
+     z-index: 998;
+     background: #fff;
+     color: #111;
+     border-top: 1.5px solid rgba(255,255,255, 2);
+     transition: left 0.2s ease-in-out;
+   }
+
+   .navbar .menu.active{
+     left: 0;
+   }
+
+   .navbar .menu li{
+     position: relative;
+     margin: 5px 0;
+     text-align: center;
+     list-style: none;
+   }
+
+   .navbar .menu li a{
+     --spacing: 0.5em;
+     text-decoration: none;
+     text-transform: uppercase;
+     color: currentColor;
+     font-weight: 400;
+     font-size: 24px;
+   }
+
+   .navbar .menu li a::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: var(--spacing);
+    right: var(--spacing);
+    height: 2px;
+    background: currentColor;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    transition: -webkit-transform 150ms ease-in-out;
+    transition: transform 150ms ease-in-out;
+   }
+
+   .navbar .menu li a:hover::after,
+   .navbar .menu li a:focus::after{
+     -webkit-transform: scaleX(1);
+     transform: scaleX(1);
+   }
+
+   /*
+    2.2 Dash Cntent
+   */
+
+   .dash-content{
+     padding: 100px 20px 0 20px;
+     width: 100vw;
+     min-height: 100vh;
+   }
+
+   section.notification .title{
+     text-transform: capitalize;
+     letter-spacing: 1.2px;
+   }
+
+   section.notification .wrapper-card{
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     width: 100%;
+   }
+
+   section.notification .wrapper-card .notifbx{
+     position: relative;
+     display: flex;
+     flex-direction: column;
+     padding: 10px;
+     margin: 1.2em 1em;
+     width: 275px;
+     height: 275px;
+     text-align: center;
+     border-radius: 10px;
+     box-shadow: 0 0 20px -5px rgb(0 0 0 / 70%);
+   }
+
+   .notifbx span.title{
+     font-size: 2em;
+     font-weight: 600;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+     height: 20%;
+   }
+
+   .notifbx i{
+     font-size: 7em;
+     padding: 10px 0;
+     font-weight: 600;
+     letter-spacing: 1px;
+     height: 60%;
+   }
+
+   .notifbx span.counter{
+     font-size: 2em;
+     font-weight: 600;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+     height: 20%;
+   }
+
+   .notifbx.host-card{
+     background: var(--blueDefault);
+     color: #fff;
+   }
+
+   .notifbx.pckg-card{
+     background: var(--yellowDefault);
+     color: #fff;
+   }
+
+
+}
+
+@media only screen and (max-width: 360px){
+
+}
