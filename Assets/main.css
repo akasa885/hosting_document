@@ -73,6 +73,11 @@ body{
   display: none;
 }
 
+.navbar, .dash-content{
+  position: absolute;
+  display: none;
+}
+
 @keyframes zoomIn {
   from{
     transform: scale(0);
@@ -108,6 +113,14 @@ body{
   }
 }
 
+@keyframes rotate {
+  from{
+    transform: rotate(0);
+  }to{
+    transform: rotate(360deg);
+  }
+}
+
 .holder .login-container form input{
   pointer-events: none;
 }
@@ -132,6 +145,68 @@ body{
   .main_media .modal-dialog{
     margin: 2rem !important;
   }
+
+  /*
+  ###########################
+  L. Loading
+  ###########################
+   */
+
+  .loading{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: var(--mainColorBackground);
+    z-index: 1000;
+    transition: opacity 0.2s ease-out;
+  }
+
+  .loading .wrapper{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    animation: rotate 2s infinite;
+  }
+
+  .loading .ball{
+    position: absolute;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 1.5em;
+  }
+
+  .loading .ball:nth-child(1){
+    background: var(--redDefault);
+    top: 0;
+    left: 0;
+    /* animation: loadingOnes 2s infinite; */
+  }
+
+  .loading .ball:nth-child(2){
+    background: var(--blueDefault);
+    /* display: none; */
+    top: 0;
+    right: 0;
+  }
+
+  .loading .ball:nth-child(3){
+    background: var(--yellowDefault);
+    /* display: none; */
+    bottom: 0;
+    left: 0;
+    /* animation: loadingThird 2s infinite; */
+  }
+
+  .loading .ball:nth-child(4){
+    background: var(--greenDefault);
+    top: 25;
+    left: 25;
+    /* animation: loadingFourth 2s infinite; */
+  }
+
   /*
   ###########################
   1. Login Form
@@ -401,6 +476,8 @@ body{
    */
 
    .dash-content{
+     position: static;
+     display: block;
      padding: 100px 20px 0 20px;
      width: 100vw;
      min-height: 100vh;
