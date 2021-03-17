@@ -19,18 +19,25 @@
     <h3 class="title">Notification</h3>
     <div class="wrapper-card">
       <div class="notifbx host-card">
-        <span class="title">Client</span>
+        <div class="information">
+          <span class="title">Client</span>
+          <span class="counter">958</span>
+        </div>
         <i class="fa fa-users"></i>
-        <span class="counter">958</span>
       </div>
       <div class="notifbx pckg-card">
-        <span class="title">Package</span>
+        <div class="information">
+          <span class="title">Package</span>
+          <span class="counter">147</span>
+        </div>
         <i class="fa fa-cubes"></i>
-        <span class="counter">147</span>
       </div>
     </div>
   </section>
   <section class="content-media">
+    <div class="row-content">
+      <?php include 'dash_client.php'; ?>
+    </div>
   </section>
 </div>
 <script type="text/javascript">

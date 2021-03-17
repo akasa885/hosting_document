@@ -3,6 +3,36 @@
 0.A. Setting
 ###########################
  */
+ table.tb-full{
+   border-collapse: collapse;
+   width: 100%;
+ }
+
+ table.tb-full td{
+   letter-spacing: 1px;
+ }
+
+ table th{
+   font-weight: 600;
+ }
+
+ table td, table th{
+   font-size: .8125rem;
+   padding: 1rem;
+   white-space: nowrap;
+ }
+
+ table thead th{
+   font-size: .75rem;
+   padding: .75rem;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+ }
+
+ table thead.light th{
+   background: var(--thBackground);
+   color: var(--thColor);
+ }
 
 
 
@@ -342,13 +372,13 @@ body{
      align-items: center;
      text-decoration: none;
      color: currentColor;
-     height: 80px;
+     height: 70px;
      transform: rotate(0);
      transition: transform 0.3s ease-out;
    }
 
    .navbar .logo h3{
-     font-size: 1.5em;
+     font-size: 1.25em;
      font-weight: 600;
      letter-spacing: 1.5px;
      text-transform: uppercase;
@@ -372,7 +402,7 @@ body{
      content: "";
      display: flex;
      align-items: center;
-     width: 60px;
+     width: 45px;
      height: 20px;
      transition: height 0.3s ease-out;
    }
@@ -418,7 +448,7 @@ body{
 
    .navbar .menu{
      position: fixed;
-     top: 80px;
+     top: 70px;
      left: -100%;
      display: block;
      width: 100%;
@@ -478,12 +508,19 @@ body{
    .dash-content{
      position: static;
      display: block;
-     padding: 100px 20px 0 20px;
+     padding: 72px 0;
      width: 100vw;
      min-height: 100vh;
    }
 
-   section.notification .title{
+   section.notification{
+     background: var(--redDefault);
+     color: #fff;
+     padding-bottom: 4.5rem !important;
+   }
+
+   section.notification h3.title{
+     padding: 5px 20px;
      text-transform: capitalize;
      letter-spacing: 1.2px;
    }
@@ -498,50 +535,90 @@ body{
    section.notification .wrapper-card .notifbx{
      position: relative;
      display: flex;
-     flex-direction: column;
+     flex-direction: row;
+     flex-wrap: nowrap;
      padding: 10px;
-     margin: 1.2em 1em;
+     margin: 1em;
      width: 275px;
-     height: 275px;
+     height: 100px;
      text-align: center;
      border-radius: 10px;
+     background: #fff;
+     color: #111;
      box-shadow: 0 0 20px -5px rgb(0 0 0 / 70%);
    }
 
-   .notifbx span.title{
-     font-size: 2em;
-     font-weight: 600;
+   .wrapper-card .notifbx .information{
+     display: flex;
+     flex-direction: column;
+     width: 100%;
+     text-align: left;
+   }
+
+   .notifbx .information span.title{
+     font-size: 1.5em;
+     font-weight: bold;
      text-transform: uppercase;
      letter-spacing: 1px;
-     height: 20%;
+   }
+
+   .notifbx .information span.counter{
+     font-size: 1.2em;
+     font-weight: 400;
+     text-transform: uppercase;
+     padding: 0 5px;
+     letter-spacing: 1px;
    }
 
    .notifbx i{
-     font-size: 7em;
+     display: flex;
+     align-items: center;
+     font-size: 2.5em;
      padding: 10px 0;
      font-weight: 600;
      letter-spacing: 1px;
-     height: 60%;
    }
 
-   .notifbx span.counter{
-     font-size: 2em;
-     font-weight: 600;
-     text-transform: uppercase;
-     letter-spacing: 1px;
-     height: 20%;
+   .notifbx.host-card i{
+     color: var(--blueDefault);
    }
 
-   .notifbx.host-card{
-     background: var(--blueDefault);
-     color: #fff;
+   .notifbx.pckg-card i{
+     color: var(--yellowDefault);
    }
 
-   .notifbx.pckg-card{
-     background: var(--yellowDefault);
-     color: #fff;
+   section.content-media{
+     margin-top: -4.5rem !important;
+     /* background: cadetblue; */
+     height: 100px;
    }
 
+   .row-content{
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     width: 100%;
+   }
+
+   .contentCard{
+     background: #fff;
+     width: 276px;
+     border-radius: 10px;
+   }
+   
+   .contentCard.client{
+     margin-top: 1rem;
+   }
+
+   .contentCard .card-header{
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+   }
+
+   .contentCard .tb-resp{
+     overflow-x: auto;
+   }
 
 }
 
