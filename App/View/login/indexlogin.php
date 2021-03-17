@@ -83,20 +83,35 @@
         });
 
       }else if (role == 'register'){
+        form = $('#register_sc');
+        form.validate();
 
-        $.ajax({
-          method: "post",
-          url: "<?=baseurl?>ajax/registrasi",
-          data: {},
-          cache: false,
-          type: "json",
-          success: function(data){
+        if (form.valid()) {
 
-          },
-          error: function(data){
-            alert('response register failed');
-          }
-        });
+          data = form.serialize();
+          console.log(data);
+          $.ajax({
+            method: "post",
+            url: "<?=baseurl?>ajax/registrasi",
+            data: data,
+            cache: false,
+            type: 'json',
+            success: function(data){
+              if (data.success == 2) {
+                alert('Terjadi Keselahan atau User Sudah Ada!');
+              }else if (data.success == 0){
+                alert(data.success);
+              }else{
+                alert(data.success);
+                location.reload();
+              }
+            },
+            error: function(data){
+              alert('response register failed');
+            }
+          });
+
+        }
 
       }else if (role == 'reset' && token != ''){
 
@@ -129,5 +144,8 @@
 
       }
     });
-  })
+  });
+  function formCheck(form_s) {
+    return form_s.validate();
+  }
 </script>

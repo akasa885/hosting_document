@@ -168,6 +168,25 @@ body{
 
 }
 
+@media (min-width: 620px) and (max-width: 720px){
+
+  .contentCard{
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .contentCard.client{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    width: 350px;
+  }
+
+  .row-content{
+    flex-direction: row !important;
+  }
+
+}
+
 @media only screen and (max-width: 720px){
   .mobile_only{
     display: none;
@@ -317,6 +336,7 @@ body{
     letter-spacing: 1px;
     text-transform: capitalize;
     align-items: center;
+    cursor: pointer;
   }
 
   #token_wrapper input.alert{
@@ -335,6 +355,15 @@ body{
 
   #reg_wrapper{
     animation: zoomY 0.1s ease-in;
+  }
+
+  label.error{
+    color: var(--redDefault);
+    font-size: .75em;
+  }
+
+  label.message{
+    font-size: .75em;
   }
 
   /*
@@ -508,7 +537,7 @@ body{
    .dash-content{
      position: static;
      display: block;
-     padding: 72px 0;
+     padding: 72px 0 0 0;
      width: 100vw;
      min-height: 100vh;
    }
@@ -590,13 +619,15 @@ body{
    section.content-media{
      margin-top: -4.5rem !important;
      /* background: cadetblue; */
-     height: 100px;
    }
 
    .row-content{
      display: flex;
+     flex-direction: column;
      flex-wrap: wrap;
      justify-content: center;
+     align-items: center;
+     padding-bottom: 2rem;
      width: 100%;
    }
 
@@ -604,10 +635,8 @@ body{
      background: #fff;
      width: 276px;
      border-radius: 10px;
-   }
-   
-   .contentCard.client{
      margin-top: 1rem;
+     box-shadow: 0 0 20px -5px rgb(0 0 0 / 70%);
    }
 
    .contentCard .card-header{
@@ -620,6 +649,20 @@ body{
      overflow-x: auto;
    }
 
+   .sc-footer{
+     display: block;
+     height: 35px;
+     text-align: center;
+     font-family: roboto;
+     font-size: .75rem;
+     font-weight: 400;
+   }
+
+   .sc-footer a{
+     color: currentColor;
+     text-decoration: none;
+     font-weight: 600;
+   }
 }
 
 @media only screen and (max-width: 360px){

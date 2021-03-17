@@ -22,13 +22,34 @@
           <td>8 Maret 2022</td>
           <td>ADM001</td>
         </tr>
-          <tr>
-            <td>Rizki Akbar</td>
-            <td>rapro.xyz</td>
-            <td>8 Maret 2021</td>
-            <td>8 Maret 2022</td>
-            <td>ADM001</td>
-          </tr>
+        <tr>
+          <td>Rizki Akbar</td>
+          <td>rapro.xyz</td>
+          <td>8 Maret 2021</td>
+          <td>8 Maret 2022</td>
+          <td>ADM001</td>
+        </tr>
+        <tr>
+          <td>Rizki Akbar</td>
+          <td>rapro.xyz</td>
+          <td>8 Maret 2021</td>
+          <td>8 Maret 2022</td>
+          <td>ADM001</td>
+        </tr>
+        <tr>
+          <td>Rizki Akbar</td>
+          <td>rapro.xyz</td>
+          <td>8 Maret 2021</td>
+          <td>8 Maret 2022</td>
+          <td>ADM001</td>
+        </tr>
+        <tr>
+          <td>Rizki Akbar</td>
+          <td>rapro.xyz</td>
+          <td>8 Maret 2021</td>
+          <td>8 Maret 2022</td>
+          <td>ADM001</td>
+        </tr>
       </tbody>
     </table>
   </div>

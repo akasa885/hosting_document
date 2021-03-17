@@ -51,7 +51,7 @@ class ajax extends controller
         if ($result != 0) {
           $this->data->success = 1;
           // $data->dom = file_get_contents('App/View/login/register.php');
-          $this->data->dom = '../App/View/login/register.php';          
+          $this->data->dom = '../App/View/login/register.php';
         }
 
       }
@@ -73,18 +73,20 @@ class ajax extends controller
 
   function registrasi()
   {
+
     if (isset($_POST['un'])) {
-      $result = $this->model('users')->add($_POST['un'],$_POST['pass']);
+      $result = $this->model('users')->add($_POST['un'],$_POST['m_pass']);
       if ($result == 1) {
         $this->data->success = 'Register Success!';
       }else{
-        $this->data->success = 'Terjadi Keselahan atau User Sudah Penuh!';
+        $this->data->success = 2;
       }
     }else{
       $this->data->success = 0;
     }
 
     echo json_encode($this->data);
+    // echo $_POST['un'];
 
   }
 

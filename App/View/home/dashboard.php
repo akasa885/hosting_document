@@ -37,6 +37,7 @@
   <section class="content-media">
     <div class="row-content">
       <?php include 'dash_client.php'; ?>
+      <?php include 'dash_package.php'; ?>
     </div>
   </section>
 </div>

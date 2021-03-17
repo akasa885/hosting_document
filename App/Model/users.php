@@ -28,11 +28,14 @@ class users
   function add($username, $pas)
   {
     $encryp = password_hash($pas,PASSWORD_BCRYPT);
+    $exist = $this->usersExistence($username);
     $kode_user = $this->getUserCode();
     $success = 0;
-    if ($kode_user == 0 || $kode_user == 1) {
-      return 0;
+    $test = 1;
+    if ($kode_user === 0 || $kode_user === 1 || $exist === 1) {
+      return 'error code';
     }
+
     $sql = "insert into users (kode_user,username,password) values ('$kode_user','$username','$encryp')";
     $result = $this->proses($sql);
     if(!$result){
@@ -43,18 +46,36 @@ class users
     return $success;
   }
 
+  function usersExistence($un)
+  {
+    $code = 0;
+    $sql = "select id from users where username like '$un'";
+    $result = $this->proses($sql);
+
+    while($id = mysqli_fetch_array($result)){
+      $x = (int)$id;
+    }
+
+    if (isset($x)) {
+      $code = 1;
+    }
+
+    return $code;
+
+  }
+
   function getUserCode(){
     $sql = "select max(substr(kode_user, 3, 6)) from users";
     $result = $this->proses($sql);
     while($no = mysqli_fetch_array($result)){
-      $x = (int)$noS;
+      $x = (int)$no;
     }
     if (isset($x) && $x == 0) {
-      $kode_usr = 'USR001';
+      $kode_usr = 'ADM001';
     }else if(isset($x)){
       if ($x < 10) {
         $x_up = $x + 1;
-        $kode_usr = 'USR00'.$x_up;
+        $kode_usr = 'ADM00'.$x_up;
       }else{
         $kode_usr = 1;
       }

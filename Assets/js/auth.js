@@ -23,5 +23,17 @@ $(document).ready(function () {
     $('#instruction_btn').html('Next');
     $('#modalInput').modal('toggle');
   });
+});
 
-})
+function confirmPass() {
+  if ($('#m_pass').val() != null && $('#m_pass').val() != ''){
+      $('#c_pass').prop("disabled",false);
+    if ($('#m_pass').val() == $('#c_pass').val()) {
+      $('#c_msg').html('Matching').css('color', 'green');
+      $('#instruction_btn').prop("disabled", false);
+    } else{
+      $('#c_msg').html('Not Matching').css('color', 'red');
+      $('#instruction_btn').prop("disabled", true);
+    }
+  }
+}

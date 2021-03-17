@@ -8,6 +8,7 @@
   <link rel="stylesheet" type="text/css" href="<?=baseaset?>style.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
   <script type="text/javascript" src="<?=baseaset?>jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="<?=baseaset?>jquery/jquery.validate.min.js"></script>
   <script type="text/javascript" src="<?=baseaset?>js/loading.js"></script>
   <script type="text/javascript" src="<?=baseaset?>bootstrap/js/bootstrap.min.js"></script>
 </head>
