@@ -12,7 +12,7 @@
    {
      session_start();
      $test = 0;
-     $this->data->judul="Dashboard";
+     $this->data->judul=APP_NAME." | Dashboard";
      $this->data->username=$this->model('usercek')->get_user();
      if($this->data->username === "guest" && $test == 0){
        header('Location:'.loginfirst);
