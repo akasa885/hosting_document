@@ -3,7 +3,7 @@ $(document).ready(function () {
   $('#loginForm').on('click','#register', function () {
     $('.modal-body, .changer')
       .html('loading...')
-      .load('../App/View/login/tokenAuth.php', function(){
+      .load(APP_url+'/App/View/login/tokenAuth.php', function(){
         //Bagian yang dilakukan sehabis load
         $('#f_identity').attr('role','reg');
       });
@@ -15,7 +15,7 @@ $(document).ready(function () {
   $('#loginForm').on('click','.forgotPass', function () {
     $('.modal-body, .changer')
       .html('loading...')
-      .load('../App/View/login/tokenAuth.php', function(){
+      .load(APP_url+'/App/View/login/tokenAuth.php', function(){
         //Bagian yang dilakukan sehabis load
         $('#f_identity').attr('role','reset');
       });

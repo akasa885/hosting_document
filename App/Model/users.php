@@ -16,18 +16,21 @@ class users
 
   function select($username, $pass)
   {
-    $sql = "select * from users where username = ".$username;
-
-    if (password_verify($pass,$data['password'])) {
-      // code...
-    }else{
-
+    $sql = "select * from users where username = '$username'";
+    $result = $this->proses($sql);
+    while ($data = mysqli_fetch_array($result)) {
+      if (password_verify($pass,$data['password'])) {
+        return $data['kode_user'];
+      }else{
+        return 0;
+      }
     }
+    return 0;
   }
 
-  function add($username, $pas)
+  function add($username, $pass)
   {
-    $encryp = password_hash($pas,PASSWORD_BCRYPT);
+    $encryp = password_hash($pass,PASSWORD_BCRYPT);
     $exist = $this->usersExistence($username);
     $kode_user = $this->getUserCode();
     $success = 0;
@@ -43,6 +46,7 @@ class users
     }else{
       $success = 1;
     }
+
     return $success;
   }
 
@@ -65,10 +69,10 @@ class users
   }
 
   function getUserCode(){
-    $sql = "select max(substr(kode_user, 3, 6)) from users";
-    $result = $this->proses($sql);
+    $sql = "select max(substr(kode_user, 4, 6)) from users";
+    $result = $this->proses($sql);  
     while($no = mysqli_fetch_array($result)){
-      $x = (int)$no;
+      $x = (int)$no[0];
     }
     if (isset($x) && $x == 0) {
       $kode_usr = 'ADM001';

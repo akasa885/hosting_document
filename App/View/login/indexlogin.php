@@ -1,13 +1,16 @@
 <div class="holder">
+  <div class="notif-response <?php if(isset($data->error))echo 'error';?>">
+    <span class="auth-response"><?php if(isset($data->error)) echo $data->error; ?></span>
+  </div>
   <div class="login-container">
     <div class="header">
       <span>login</span>
     </div>
     <div class="body">
-      <form id="loginForm">
+      <form id="loginForm" action="<?=loginfirst?>/auth" method="post">
         <div class="input_group">
           <span>username</span>
-          <input type="text" name="username" required="true" aria-hidden="true">
+          <input type="text" name="username" required="true" aria-hidden="true" value="<?php if(isset($data->old))echo $data->old; ?>">
         </div>
         <div class="input_group">
           <span>password</span>
@@ -42,7 +45,7 @@
     </div>
   </div>
 </div>
-<script type="text/javascript" src="<?=baseaset?>js/auth.js"></script>
+<script type="text/javascript" src="<?=baseaset?>/js/auth.js"></script>
 <script>
   $(document).ready(function () {
     $('.modal-footer').on('click', '#instruction_btn', function () {
@@ -59,7 +62,7 @@
       if (role == 'reg' && token != '') {
         $.ajax({
           method: "post",
-          url: "<?=baseurl?>ajax/auth",
+          url: "<?=baseurl?>/ajax/auth",
           data: {token:token,role:role},
           cache: false,
           type: "json",
@@ -92,7 +95,7 @@
           console.log(data);
           $.ajax({
             method: "post",
-            url: "<?=baseurl?>ajax/registrasi",
+            url: "<?=baseurl?>/ajax/registrasi",
             data: data,
             cache: false,
             type: 'json',
@@ -117,7 +120,7 @@
 
         $.ajax({
           method: "post",
-          url: "<?=baseurl?>ajax/auth",
+          url: "<?=baseurl?>/ajax/auth",
           data: {token:token,role:role},
           cache: false,
           type: "json",

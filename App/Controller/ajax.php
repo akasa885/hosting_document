@@ -51,7 +51,7 @@ class ajax extends controller
         if ($result != 0) {
           $this->data->success = 1;
           // $data->dom = file_get_contents('App/View/login/register.php');
-          $this->data->dom = '../App/View/login/register.php';
+          $this->data->dom = baseurl.'/App/View/login/register.php';
         }
 
       }
@@ -62,7 +62,7 @@ class ajax extends controller
         $result = $this->model('resetPass')->select($_POST['token']);
         if ($result != 0) {
           $this->data->success = 1;
-          $this->data->dom = '../App/View/login/resetPass.php';
+          $this->data->dom = baseurl.'/App/View/login/resetPass.php';
         }
       }
     }else{

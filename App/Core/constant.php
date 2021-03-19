@@ -1,9 +1,9 @@
 <?php
-define('baseurl','http://localhost/hosting_document/');
+define('baseurl','http://localhost/hosting_document');
 
-define('loginfirst',baseurl.'login/');
+define('loginfirst',baseurl.'/login');
 
-define('baseaset',baseurl.'Assets/');
+define('baseaset',baseurl.'/Assets');
 
 define('APP_NAME','Dokumentasi Data');
 

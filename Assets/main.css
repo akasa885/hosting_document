@@ -45,6 +45,10 @@
   outline: none;
 }
 
+.main_media{
+  width: 100vw;
+}
+
 .input_group{
   display: flex;
   flex-direction: column;
@@ -108,6 +112,22 @@ body{
   display: none;
 }
 
+.sc-footer{
+  display: block;
+  height: 35px;
+  width: 100%;
+  text-align: center;
+  font-family: roboto;
+  font-size: .75rem;
+  font-weight: 400;
+}
+
+.sc-footer a{
+  color: currentColor;
+  text-decoration: none;
+  font-weight: 600;
+}
+
 @keyframes zoomIn {
   from{
     transform: scale(0);
@@ -148,6 +168,20 @@ body{
     transform: rotate(0);
   }to{
     transform: rotate(360deg);
+  }
+}
+
+@keyframes listAnime {
+   0% {
+    opacity: 0;
+    top: 100px;
+  }
+  75% {
+    opacity: 0.5;
+    top: 0px;
+  }
+  100% {
+    opacity: 1;
   }
 }
 
@@ -265,11 +299,30 @@ body{
   .holder{
     position: relative;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-width: 100vw;
     min-height: 100vh;
     padding: 0 2em;
+  }
+
+  .notif-response{
+    display: none;
+    font-size: .85em;
+    padding: 15px;
+    font-family: roboto;
+    text-transform: capitalize;
+  }
+
+  .notif-response.error{
+    display: block;
+    background: var(--red);
+    color: #fff;
+  }
+
+  .holder .notif-response{
+    margin-bottom: 2rem;
   }
 
   .holder .login-container{
@@ -492,6 +545,13 @@ body{
 
    .navbar .menu.active{
      left: 0;
+     overflow-y: auto;
+   }
+
+   .navbar .menu.active li{
+     animation: listAnime 1s ease-in-out;
+     animation-delay: calc(0.05s * var(--i));
+     animation-fill-mode: both;
    }
 
    .navbar .menu li{
@@ -499,6 +559,7 @@ body{
      margin: 5px 0;
      text-align: center;
      list-style: none;
+     opacity: 0;
    }
 
    .navbar .menu li a{
@@ -647,21 +708,6 @@ body{
 
    .contentCard .tb-resp{
      overflow-x: auto;
-   }
-
-   .sc-footer{
-     display: block;
-     height: 35px;
-     text-align: center;
-     font-family: roboto;
-     font-size: .75rem;
-     font-weight: 400;
-   }
-
-   .sc-footer a{
-     color: currentColor;
-     text-decoration: none;
-     font-weight: 600;
    }
 }
 
