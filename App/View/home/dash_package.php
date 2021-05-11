@@ -7,43 +7,42 @@
     <table class="tb-full">
       <thead class="light">
         <tr>
-          <th>Kode</th>
+          <th>No</th>
           <th>Durasi</th>
           <th>Price</th>
           <th>Status</th>
         </tr>
       </thead>
       <tbody>
+      <?php      
+      if (isset($data->package)) 
+      {        
+        while($row = mysqli_fetch_array($data->package))                      
+        {          
+        ?>                  
+          <tr>
+            <td><?=$row[0]?></td>
+            <td><?=$row[1]?></td>
+            <td><?=$row[2]?></td>
+            <td><?php 
+            if($row[5] == 1) {echo "Active";}
+            if($row[5] == 0) {echo "Deactived";}
+            ?></td>
+          </tr>
+      <?php
+        }   
+      }      
+      else
+      {
+      ?>
         <tr>
-          <td>PCK001</td>
-          <td>1 Bulan</td>
-          <td>35.000</td>
-          <td>Active</td>
+          <td colspan="4">
+            DATA KOSONG
+          </td>
         </tr>
-        <tr>
-          <td>PCK002</td>
-          <td>3 Bulan</td>
-          <td>75.000</td>
-          <td>Active</td>
-        </tr>
-        <tr>
-          <td>PCK003</td>
-          <td>1 Tahun</td>
-          <td>125.000</td>
-          <td>Active</td>
-        </tr>
-        <tr>
-          <td>PCK001</td>
-          <td>1 Bulan</td>
-          <td>25.000</td>
-          <td>Active</td>
-        </tr>
-        <tr>
-          <td>PCK001</td>
-          <td>1 Bulan</td>
-          <td>25.000</td>
-          <td>Active</td>
-        </tr>
+      <?php
+      }      
+      ?>        
       </tbody>
     </table>
   </div>

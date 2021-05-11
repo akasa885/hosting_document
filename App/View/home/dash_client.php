@@ -15,41 +15,33 @@
         </tr>
       </thead>
       <tbody>
+      <?php      
+      if (isset($data->client)) 
+      {
+        while($row = mysqli_fetch_array($data->client))                      
+        {          
+        ?>                  
+          <tr>
+            <td><?=$row[1]?></td>
+            <td><?=$row[2]?></td>
+            <td><?=$row[6]?></td>
+            <td><?=$row[7]?></td>
+            <td><?=$row[4]?></td>
+          </tr>
+      <?php
+        }   
+      }      
+      else
+      {
+      ?>
         <tr>
-          <td>Rizki Akbar</td>
-          <td>rapro.xyz</td>
-          <td>8 Maret 2021</td>
-          <td>8 Maret 2022</td>
-          <td>ADM001</td>
+          <td colspan="4">
+            DATA KOSONG
+          </td>
         </tr>
-        <tr>
-          <td>Rizki Akbar</td>
-          <td>rapro.xyz</td>
-          <td>8 Maret 2021</td>
-          <td>8 Maret 2022</td>
-          <td>ADM001</td>
-        </tr>
-        <tr>
-          <td>Rizki Akbar</td>
-          <td>rapro.xyz</td>
-          <td>8 Maret 2021</td>
-          <td>8 Maret 2022</td>
-          <td>ADM001</td>
-        </tr>
-        <tr>
-          <td>Rizki Akbar</td>
-          <td>rapro.xyz</td>
-          <td>8 Maret 2021</td>
-          <td>8 Maret 2022</td>
-          <td>ADM001</td>
-        </tr>
-        <tr>
-          <td>Rizki Akbar</td>
-          <td>rapro.xyz</td>
-          <td>8 Maret 2021</td>
-          <td>8 Maret 2022</td>
-          <td>ADM001</td>
-        </tr>
+      <?php
+      }      
+      ?>      
       </tbody>
     </table>
   </div>

@@ -1,4 +1,4 @@
-<html>
+<html lang="id">
 <head>
   <meta charset="utf-8">
   <title><?=$data->judul?></title>

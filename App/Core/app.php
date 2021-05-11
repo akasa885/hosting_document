@@ -11,24 +11,27 @@ class app
     $url = $this->parseURL();
 
     //class
-    if(file_exists('App/Controller/'.$url[0].'.php'))
-    {
-        $this->controller = $url[0];
+    if (isset($url[0])) {
+      if(file_exists('App/Controller/'.$url[0].'.php'))
+      {
+          $this->controller = $url[0];
+          unset ($url[0]);
+      }
+      elseif ($url[0] == 'Core' or $url[0] == 'Controller' or $url[0] == 'Model' or $url[0] == 'View')
+      {
+        $this->controller = 'forbidden';
         unset ($url[0]);
-    }
-    elseif ($url[0] == 'Core' or $url[0] == 'Controller' or $url[0] == 'Model' or $url[0] == 'View')
-    {
-      $this->controller = 'forbidden';
-      unset ($url[0]);
-    }
-    else if(!$url[0] == '' )
-    {
-      $this->controller = 'nofound';
-      unset ($url[0]);
-    }
+      }
+      else if(!$url[0] == '' )
+      {
+        $this->controller = 'nofound';
+        unset ($url[0]);
+      }
+    }    
     // unset($url[0]);
     require_once'App/Controller/'.$this->controller.'.php';
     $this->controller = new $this->controller;
+
     //method
     if(isset($url[1]))
     {

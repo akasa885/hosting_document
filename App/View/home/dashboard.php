@@ -22,14 +22,14 @@
       <div class="notifbx host-card">
         <div class="information">
           <span class="title">Client</span>
-          <span class="counter">958</span>
+          <span class="counter"><?=$data->client_count?></span>
         </div>
         <i class="fa fa-users"></i>
       </div>
       <div class="notifbx pckg-card">
         <div class="information">
           <span class="title">Package</span>
-          <span class="counter">147</span>
+          <span class="counter"><?=$data->pack_count?></span>
         </div>
         <i class="fa fa-cubes"></i>
       </div>

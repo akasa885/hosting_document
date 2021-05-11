@@ -14,6 +14,24 @@
      $test = 0;
      $this->data->judul=APP_NAME." | Dashboard";
      $this->data->username=$this->model('usercek')->get_user();
+     $this->data->pack_count = '0';
+     $this->data->client_count = '0';
+     //------------------------------------------
+     if ($pack_count = $this->model('package')->getCount())
+     {$this->data->pack_count = $pack_count;}
+     //------------------------------------------
+     //------------------------------------------
+     if($client_count = $this->model('client')->getCount())
+     {$this->data->client_count = $client_count;}
+     //------------------------------------------
+     //------------------------------------------     
+     if($package = $this->model('package')->selectDash())
+     {$this->data->package = $package;}          
+     //------------------------------------------
+     //------------------------------------------
+     if($client = $this->model('client')->selectDash())
+     {$this->data->client = $client;}           
+     //------------------------------------------
      if($this->data->username === "guest" && $test == 0){
        header('Location:'.loginfirst);
      }else{
@@ -29,7 +47,8 @@
 
    function logout()
    {
-     session_unset('code_ses');
+    //  session_unset('code_ses'); //coba di php 8 error!
+     session_unset();
      session_destroy();
      session_write_close();
      setcookie(session_name(),'',0,'/');
