@@ -1,7 +1,7 @@
 <?php
 define('baseurl','http://localhost/hosting_document');
 
-define('loginfirst',baseurl.'/login');
+define('homepage',baseurl.'/home');
 
 define('baseaset',baseurl.'/Assets');
 
