@@ -1,6 +1,6 @@
 <?php
 
-  $host='localhost';
+  $host=database_host;
 
   $user=database_user;
 
