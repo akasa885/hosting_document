@@ -32,8 +32,12 @@
      if($client = $this->model('client')->selectDash())
      {$this->data->client = $client;}           
      //------------------------------------------
+     //------------------------------------------
+     if($reset_pin = $this->model('resetPassword')->check_auth_status($_SESSION['code_ses']))
+     {$this->data->set_pin = "! set reset pin !";}
+     //------------------------------------------
      if($this->data->username === "guest" && $test == 0){
-       header('Location:'.loginfirst);
+       header('Location:'.baseurl.'/login');
      }else{
        //---------
        $this->view('templates/header',$this->data);
@@ -53,7 +57,7 @@
      session_write_close();
      setcookie(session_name(),'',0,'/');
      session_regenerate_id(true);
-     header('Location:'.loginfirst);
+     header('Location:'.baseurl);
    }
 
  }

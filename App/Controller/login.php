@@ -20,7 +20,7 @@ class login extends controller
     }
     $checked=$this->model('usercek')->get_user();
     if ($checked !== "guest") {
-      header('Location:'.baseurl);
+      header('Location:'.homepage);
     }else{
       //---------
       $this->view('templates/header',$this->data);
@@ -48,10 +48,10 @@ class login extends controller
         session_start();
         //==========================
         $_SESSION['code_ses'] = $response;
-        header('Location:'.baseurl);
+        header('Location:'.homepage);
         //==========================
       }else{
-        header('Location:'.loginfirst.'/auth=false/'.$un);
+        header('Location:'.baseurl.'/login/auth=false/'.$un);
       }
     }
   }

@@ -52,6 +52,7 @@ class package
     if ($back === 0) {
       return 0;
     }
+    mysqli_data_seek( $result, 0 ); //mengembalikan data result sebelu ter-fetch
     return $result;
   }
 

@@ -7,7 +7,7 @@
       <span>login</span>
     </div>
     <div class="body">
-      <form id="loginForm" action="<?=loginfirst?>/auth" method="post">
+      <form id="loginForm" action="<?=baseurl?>/login/auth" method="post">
         <div class="input_group">
           <span>username</span>
           <input type="text" name="username" required="true" aria-hidden="true" value="<?php if(isset($data->old))echo $data->old; ?>">

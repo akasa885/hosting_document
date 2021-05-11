@@ -10,8 +10,9 @@
     <li style="--i:1;"> <a href="#">Home</a> </li>
     <li style="--i:3;"> <a href="#">Data Client</a> </li>
     <li style="--i:5;"> <a href="#">Data Package</a> </li>
-    <li style="--i:7;"> <a href="<?=baseurl?>/home/logout">Logout</a> </li>
+    <li style="--i:7;"> <a href="<?=homepage?>/logout">Logout</a> </li>
     <li style="--i:9;"> <a href="#"><?=$data->username?></a> </li>
+    <li style="--i:11;"> <a href="<?=homepage?>/user"><?php if(isset($data->set_pin)) echo $data->set_pin;?></a> </li>
   </ul>
 </div>
 
